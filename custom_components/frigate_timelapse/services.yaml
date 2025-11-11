@@ -1,0 +1,31 @@
+capture_image:
+  name: Capture Image
+  description: Capture a single image from the camera
+  fields: {}
+
+generate_timelapse:
+  name: Generate Timelapse
+  description: Generate a timelapse video from captured images
+  fields:
+    start_time:
+      name: Start Time
+      description: Start time for filtering images (optional)
+      example: "2025-11-11 00:00:00"
+    end_time:
+      name: End Time
+      description: End time for filtering images (optional)
+      example: "2025-11-11 23:59:59"
+    output_file:
+      name: Output File
+      description: Custom output filename (optional)
+      example: "my_timelapse.mp4"
+
+start_capture:
+  name: Start Capture
+  description: Start periodic image capture
+  fields: {}
+
+stop_capture:
+  name: Stop Capture
+  description: Stop periodic image capture
+  fields: {}

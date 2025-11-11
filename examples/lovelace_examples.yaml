@@ -1,0 +1,91 @@
+# Ejemplo de configuración YAML para Lovelace
+
+# Tarjeta de control de timelapse
+type: custom:frigate-timelapse-card
+entity: sensor.frigate_timelapse_front_door_status
+
+---
+
+# Configuración completa de dashboard
+
+views:
+  - title: Timelapse
+    path: timelapse
+    icon: mdi:camera-timer
+    cards:
+      - type: custom:frigate-timelapse-card
+        entity: sensor.frigate_timelapse_front_door_status
+        video_path: /media/timelapse/timelapse_front_door_latest.mp4
+      
+      - type: entities
+        title: Sensores
+        entities:
+          - sensor.frigate_timelapse_front_door_status
+          - sensor.frigate_timelapse_front_door_images_count
+          - sensor.frigate_timelapse_front_door_last_capture
+      
+      - type: button
+        name: Generar Timelapse Ahora
+        icon: mdi:movie-open
+        tap_action:
+          action: call-service
+          service: frigate_timelapse.generate_timelapse
+
+---
+
+# Automación para timelapse diario
+automation:
+  - alias: "Timelapse Diario - Iniciar captura"
+    description: "Inicia la captura al amanecer"
+    trigger:
+      - platform: sun
+        event: sunrise
+        offset: "00:30:00"
+    action:
+      - service: frigate_timelapse.start_capture
+
+  - alias: "Timelapse Diario - Generar video"
+    description: "Genera el video al atardecer"
+    trigger:
+      - platform: sun
+        event: sunset
+    action:
+      - service: frigate_timelapse.stop_capture
+      - delay: "00:00:30"
+      - service: frigate_timelapse.generate_timelapse
+        data:
+          output_file: "timelapse_{{now().strftime('%Y%m%d')}}.mp4"
+
+  - alias: "Timelapse - Limpieza semanal"
+    description: "Limpia archivos antiguos cada semana"
+    trigger:
+      - platform: time
+        at: "03:00:00"
+    condition:
+      - condition: time
+        weekday:
+          - sun
+    action:
+      - service: shell_command.cleanup_old_timelapses
+
+shell_command:
+  cleanup_old_timelapses: >
+    find /media/timelapse/captures -type d -mtime +7 -exec rm -rf {} +
+
+---
+
+# Notificación cuando se genera un timelapse
+automation:
+  - alias: "Notificar cuando se genera timelapse"
+    trigger:
+      - platform: state
+        entity_id: sensor.frigate_timelapse_front_door_status
+        from: "generating"
+        to: "idle"
+    action:
+      - service: notify.mobile_app
+        data:
+          title: "🎬 Timelapse Generado"
+          message: "El timelapse de {{ trigger.to_state.attributes.camera }} está listo"
+          data:
+            video: "/media/timelapse/timelapse_{{trigger.to_state.attributes.camera}}_latest.mp4"

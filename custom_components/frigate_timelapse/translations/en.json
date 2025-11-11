@@ -1,0 +1,52 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Configure Frigate Timelapse",
+        "description": "Enter your Frigate server URL",
+        "data": {
+          "frigate_url": "Frigate URL"
+        }
+      },
+      "camera": {
+        "title": "Select Camera",
+        "description": "Choose the camera for timelapse",
+        "data": {
+          "camera": "Camera"
+        }
+      },
+      "options": {
+        "title": "Timelapse Options",
+        "description": "Configure capture and generation options",
+        "data": {
+          "capture_interval": "Capture interval (seconds)",
+          "output_path": "Output path",
+          "fps": "Video FPS",
+          "resolution": "Video resolution"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to Frigate",
+      "no_cameras": "No cameras found in Frigate",
+      "unknown": "Unknown error"
+    },
+    "abort": {
+      "already_configured": "This camera is already configured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Timelapse Options",
+        "description": "Update capture and generation options",
+        "data": {
+          "capture_interval": "Capture interval (seconds)",
+          "output_path": "Output path",
+          "fps": "Video FPS",
+          "resolution": "Video resolution"
+        }
+      }
+    }
+  }
+}
