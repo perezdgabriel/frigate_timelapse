@@ -193,14 +193,14 @@ Genera un video timelapse desde las imágenes capturadas.
 ### Método 1: HACS (Recomendado)
 1. Abrir HACS → Integraciones
 2. Menú (⋮) → Repositorios personalizados
-3. Añadir: `https://github.com/yourusername/frigate-timelapse`
+3. Añadir: `https://github.com/perezdgabriel/frigate-timelapse`
 4. Instalar "Frigate Timelapse"
 5. Reiniciar Home Assistant
 
 ### Método 2: Manual
 ```bash
 cd /config/custom_components
-git clone https://github.com/yourusername/frigate-timelapse frigate_timelapse
+git clone https://github.com/perezdgabriel/frigate-timelapse frigate_timelapse
 # O ejecutar install.sh
 ```
 

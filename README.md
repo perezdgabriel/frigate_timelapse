@@ -1,7 +1,7 @@
 # Frigate Timelapse for Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
-[![GitHub Release](https://img.shields.io/github/release/yourusername/frigate-timelapse.svg)](https://github.com/yourusername/frigate-timelapse/releases)
+[![GitHub Release](https://img.shields.io/github/release/perezdgabriel/frigate-timelapse.svg)](https://github.com/perezdgabriel/frigate-timelapse/releases)
 
 Componente personalizado para Home Assistant que crea timelapses automáticos desde cámaras de Frigate.
 
@@ -29,7 +29,7 @@ Componente personalizado para Home Assistant que crea timelapses automáticos de
 2. Ve a "Integraciones"
 3. Haz clic en el menú (⋮) en la esquina superior derecha
 4. Selecciona "Repositorios personalizados"
-5. Añade la URL: `https://github.com/yourusername/frigate-timelapse`
+5. Añade la URL: `https://github.com/perezdgabriel/frigate-timelapse`
 6. Categoría: "Integration"
 7. Haz clic en "Añadir"
 8. Busca "Frigate Timelapse" e instálalo
@@ -216,7 +216,7 @@ El componente crea tres sensores por cada cámara configurada:
 Para contribuir al proyecto:
 
 ```bash
-git clone https://github.com/yourusername/frigate-timelapse
+git clone https://github.com/perezdgabriel/frigate-timelapse
 cd frigate-timelapse
 ```
 
@@ -226,9 +226,9 @@ MIT License - Ver archivo LICENSE para más detalles
 
 ## Soporte
 
-- 🐛 [Reportar un bug](https://github.com/yourusername/frigate-timelapse/issues)
-- 💡 [Solicitar una característica](https://github.com/yourusername/frigate-timelapse/issues)
-- 💬 [Discusiones](https://github.com/yourusername/frigate-timelapse/discussions)
+- 🐛 [Reportar un bug](https://github.com/perezdgabriel/frigate-timelapse/issues)
+- 💡 [Solicitar una característica](https://github.com/perezdgabriel/frigate-timelapse/issues)
+- 💬 [Discusiones](https://github.com/perezdgabriel/frigate-timelapse/discussions)
 
 ## Agradecimientos
 
@@ -237,4 +237,4 @@ MIT License - Ver archivo LICENSE para más detalles
 
 ---
 
-**Nota**: Reemplaza `yourusername` con tu nombre de usuario de GitHub en todos los enlaces.
+**Nota**: Reemplaza `perezdgabriel` con tu nombre de usuario de GitHub en todos los enlaces.

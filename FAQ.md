@@ -395,7 +395,7 @@ Ver `CONTRIBUTING.md` para:
 
 ### ¿Dónde reporto bugs?
 
-En GitHub Issues: https://github.com/yourusername/frigate-timelapse/issues
+En GitHub Issues: https://github.com/perezdgabriel/frigate-timelapse/issues
 
 Incluye:
 - Versión de Home Assistant

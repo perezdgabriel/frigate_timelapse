@@ -111,7 +111,7 @@ pip install aiohttp pillow
 
 1. Clonar el repositorio:
 ```bash
-git clone https://github.com/yourusername/frigate-timelapse
+git clone https://github.com/perezdgabriel/frigate-timelapse
 cd frigate-timelapse
 ```
 

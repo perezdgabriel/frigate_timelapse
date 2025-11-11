@@ -21,7 +21,7 @@ Antes de empezar, asegúrate de tener:
 1. Abre **HACS** en Home Assistant
 2. Ve a **Integraciones**
 3. Click en el menú **(⋮)** → **Repositorios personalizados**
-4. Pega esta URL: `https://github.com/yourusername/frigate-timelapse`
+4. Pega esta URL: `https://github.com/perezdgabriel/frigate-timelapse`
 5. Selecciona categoría: **Integration**
 6. Click **Añadir**
 
@@ -56,7 +56,7 @@ ssh root@homeassistant.local
 
 # Descarga el proyecto
 cd /config/custom_components
-git clone https://github.com/yourusername/frigate-timelapse.git frigate_timelapse
+git clone https://github.com/perezdgabriel/frigate-timelapse.git frigate_timelapse
 
 # Reinicia Home Assistant
 ha core restart
@@ -276,8 +276,8 @@ Una vez que tengas lo básico funcionando:
 
 ## 📞 ¿Necesitas Ayuda?
 
-- 🐛 Problemas técnicos: [GitHub Issues](https://github.com/yourusername/frigate-timelapse/issues)
-- 💬 Preguntas: [GitHub Discussions](https://github.com/yourusername/frigate-timelapse/discussions)
+- 🐛 Problemas técnicos: [GitHub Issues](https://github.com/perezdgabriel/frigate-timelapse/issues)
+- 💬 Preguntas: [GitHub Discussions](https://github.com/perezdgabriel/frigate-timelapse/discussions)
 - 📚 Documentación completa: Ver **README.md** y **FAQ.md**
 
 ---
