@@ -55,6 +55,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         """Initialize the config flow."""
         self._frigate_url: str | None = None
         self._cameras: list[str] = []
+        self._camera: str | None = None
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
@@ -98,13 +99,13 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         errors: dict[str, str] = {}
 
         if user_input is not None:
-            camera = user_input[CONF_CAMERA]
+            self._camera = user_input[CONF_CAMERA]
 
             # Check if already configured
-            await self.async_set_unique_id(f"{self._frigate_url}_{camera}")
+            await self.async_set_unique_id(f"{self._frigate_url}_{self._camera}")
             self._abort_if_unique_id_configured()
 
-            return await self.async_step_options(camera)
+            return await self.async_step_options()
 
         return self.async_show_form(
             step_id="camera",
@@ -117,13 +118,13 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         )
 
     async def async_step_options(
-        self, camera: str, user_input: dict[str, Any] | None = None
+        self, user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Handle options step."""
         if user_input is not None:
             data = {
                 CONF_FRIGATE_URL: self._frigate_url,
-                CONF_CAMERA: camera,
+                CONF_CAMERA: self._camera,
                 CONF_CAPTURE_INTERVAL: user_input[CONF_CAPTURE_INTERVAL],
                 CONF_OUTPUT_PATH: user_input[CONF_OUTPUT_PATH],
                 CONF_FPS: user_input[CONF_FPS],
@@ -131,7 +132,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             }
 
             return self.async_create_entry(
-                title=f"Frigate Timelapse - {camera}",
+                title=f"Frigate Timelapse - {self._camera}",
                 data=data,
             )
 
